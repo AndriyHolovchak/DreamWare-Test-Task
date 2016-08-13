@@ -1,0 +1,17 @@
+.navbar {
+  border-radius: 0;
+  background: #002e5d;
+  border: none;
+  min-height: 60px;
+
+  .navbar-brand {
+    color: #fff;
+    padding: 0;
+    height: 20px;
+    margin: 20px 5px !important;
+  }
+
+  .navbar-brand:hover {
+    color: #10a2d6;
+  }
+}
