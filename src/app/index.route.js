@@ -24,6 +24,11 @@
             templateUrl: 'app/templates/upload.html',
             controller: 'UploadController',
             controllerAs: 'upload'
+        }).state('main.edit', {
+            url: 'edit/:id',
+            templateUrl: 'app/templates/edit.html',
+            controller: 'EditController',
+            controllerAs: 'edit'
         })
 
     $urlRouterProvider.otherwise('home');

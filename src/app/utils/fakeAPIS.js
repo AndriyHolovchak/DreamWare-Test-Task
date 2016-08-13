@@ -43,10 +43,29 @@
             callback(null, successObj);
         }
 
+        function getUserById(id, callback) {
+            var user = lodash.find($localStorage.Users, function(o) { return o.id == id; });
+            if (user) {
+                return callback(null, user);
+            } else {
+                return callback({status: 404}, null);
+            }
+        }
+
+        function editUser(body, callback) {
+            lodash.remove($localStorage.Users, function(o) { return o.id == body.id; });
+
+            $localStorage.Users.push(body);
+
+            return callback(null, body);
+        }
+
         return {
             AddUser: AddUser,
             getAllUsers: getAllUsers,
-            deleteUserById: deleteUserById
+            deleteUserById: deleteUserById,
+            getUserById: getUserById,
+            editUser: editUser
         }
     }
 }());
