@@ -1,0 +1,11 @@
+<div id="delete" class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="delete.closeModal()">&times;</button>
+        <h2 class="text-center">Remove this user?</h2>
+        <p class="text-center">This user will be removed and will not be available.</p>
+    </div>
+    <div class="modal-body text-center">
+        <button class="btn btn-default" ng-click="delete.closeModal()">Cancel</button>
+        <button class="btn btn-danger" ng-click="delete.remove()">Remove</button>
+    </div>
+</div>

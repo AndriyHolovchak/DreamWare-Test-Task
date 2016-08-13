@@ -10,7 +10,7 @@
             .controller('HomeController', HomeController);
 
     /** @ngInject */
-    function HomeController() {
+    function HomeController($uibModal) {
         var vm = this;
 
         vm.users = [
@@ -27,5 +27,20 @@
                 age: 22
             }
         ];
+
+        vm.showDeleteModal = function(id) {
+            return $uibModal.open({
+                keyboard: false,
+                animation: true,
+                templateUrl: 'app/templates/modal-delete.html',
+                controller: 'DeleteController',
+                controllerAs: 'delete',
+                resolve: {
+                    id: function() {
+                        return id;
+                    }
+                }
+            });
+        }
     }
 })();
