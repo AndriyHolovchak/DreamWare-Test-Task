@@ -19,6 +19,11 @@
             templateUrl: 'app/templates/home.html',
             controller: 'HomeController',
             controllerAs: 'home'
+        }).state('main.upload', {
+            url: 'upload',
+            templateUrl: 'app/templates/upload.html',
+            controller: 'UploadController',
+            controllerAs: 'upload'
         })
 
     $urlRouterProvider.otherwise('home');
