@@ -7,6 +7,8 @@
             'ngAria',
             'ui.router',
             'ui.bootstrap',
-            'toastr'
+            'toastr',
+            'angularUUID2',
+            'ngStorage'
     ]);
 })();
