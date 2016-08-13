@@ -10,10 +10,15 @@
             .controller('HomeController', HomeController);
 
     /** @ngInject */
-    function HomeController($uibModal) {
+    function HomeController($uibModal, FakeAPIS) {
         var vm = this;
 
-        vm.users = [
+        FakeAPIS.getAllUsers(function(err, data) {
+            console.log(data);
+            vm.users = data;
+        });
+
+        /*vm.users = [
             {
                 login: 'Andriy',
                 birthDate: '19.0282',
@@ -26,7 +31,7 @@
                 registrationDate: 'bfdb43g',
                 age: 22
             }
-        ];
+        ];*/
 
         vm.showDeleteModal = function(id) {
             return $uibModal.open({

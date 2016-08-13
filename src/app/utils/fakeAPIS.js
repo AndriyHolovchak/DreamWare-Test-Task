@@ -11,22 +11,30 @@
             .factory('FakeAPIS', FakeAPIS);
 
     /** @ngInject */
-    function FakeAPIS(uuid2) {
+    function FakeAPIS(uuid2, $localStorage) {
+
         function AddUser(body, callback) {
+
+            $localStorage.Users = $localStorage.Users || [];
             body.id = uuid2.newuuid();
+            $localStorage.Users.push(body);
+
             var successObj = {
                 status: 201,
                 data: body
             }
-            callback(null, successObj);
+            return callback(null, successObj);
         }
 
-        /*function getAllBooks(params) {
-            return $http.get(API_ROOT_URL + 'books' + params);
-        }*/
+
+        function getAllUsers(callback) {
+            var users = $localStorage.Users || [];
+            return callback(null, users);
+        }
 
         return {
-            AddUser: AddUser
+            AddUser: AddUser,
+            getAllUsers: getAllUsers
         }
     }
 }());

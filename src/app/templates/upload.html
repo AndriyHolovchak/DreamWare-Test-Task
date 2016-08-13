@@ -6,21 +6,24 @@
         </div>
         <div class="col-md-12">
             <br/>
-            <form role="form">
+            <form role="form" ng-submit="upload.addNewUser(user)">
                 <div class="form-group">
                     <label for="email">Login</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email address">
+                    <input type="email" class="form-control" id="email" placeholder="Email address"
+                           ng-model="user.login" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                    <input type="password" class="form-control" id="pwd" placeholder="Password"
+                           ng-model="user.password" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                     <label>Date of Birth</label>
-                    <input type="date" class="form-control" id="date" placeholder="Date of Birth" max="{{upload.today | date:'yyyy-MM-dd'}}">
+                    <input type="date" class="form-control" id="date" placeholder="Date of Birth"
+                           max="{{upload.today | date:'yyyy-MM-dd'}}" ng-model="user.birthDate" required>
                 </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Hide Age?</label>
+                <div class="checkbox" ng-init="user.hideAge = false">
+                    <label><input type="checkbox" ng-model="user.hideAge" > Hide Age?</label>
                 </div>
                 <button type="submit" class="btn submit-btn">Submit</button>
             </form>

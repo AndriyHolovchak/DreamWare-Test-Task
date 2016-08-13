@@ -13,7 +13,7 @@
                     <th>Login</th>
                     <th>Birth Date</th>
                     <th>Registration Date</th>
-                    <th>Age</th>
+                    <th>Age (years)</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -21,9 +21,11 @@
                 <tbody>
                 <tr ng-repeat="user in home.users | orderBy:'login'">
                     <td>{{user.login}}</td>
-                    <td>{{user.birthDate}}</td>
-                    <td>{{user.registrationDate}}</td>
-                    <td>{{user.age}}</td>
+                    <td ng-if="!user.hideAge">{{user.birthDate | date:'yyyy-MM-dd'}}</td>
+                    <td ng-if="user.hideAge" class="hidden-info">Information hidden</td>
+                    <td>{{user.registrationDate | date:'yyyy-MM-dd'}}</td>
+                    <td ng-if="!user.hideAge">{{user.age}}</td>
+                    <td ng-if="user.hideAge" class="hidden-info">Information hidden</td>
                     <td>
                         <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: user.id})">
                             <span class="fa fa-pencil"></span></button>
