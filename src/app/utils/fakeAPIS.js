@@ -11,7 +11,7 @@
             .factory('FakeAPIS', FakeAPIS);
 
     /** @ngInject */
-    function FakeAPIS(uuid2, $localStorage) {
+    function FakeAPIS(uuid2, $localStorage, lodash) {
 
         function AddUser(body, callback) {
 
@@ -26,15 +26,27 @@
             return callback(null, successObj);
         }
 
-
         function getAllUsers(callback) {
             var users = $localStorage.Users || [];
             return callback(null, users);
         }
 
+        function deleteUserById(id, callback) {
+            lodash.remove($localStorage.Users, function(o) { return o.id == id; });
+
+            var successObj = {
+                status: 200,
+                data: {
+                    'response': 'deleted successfully'
+                }
+            }
+            callback(null, successObj);
+        }
+
         return {
             AddUser: AddUser,
-            getAllUsers: getAllUsers
+            getAllUsers: getAllUsers,
+            deleteUserById: deleteUserById
         }
     }
 }());

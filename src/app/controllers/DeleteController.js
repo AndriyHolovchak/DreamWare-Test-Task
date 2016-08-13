@@ -10,10 +10,21 @@
             .controller('DeleteController', DeleteController);
 
     /** @ngInject */
-    function DeleteController($uibModalInstance) {
+    function DeleteController($uibModalInstance, FakeAPIS, id, $state) {
         var vm = this;
+
         vm.closeModal = function() {
             $uibModalInstance.dismiss('cancel');
         };
+
+        vm.remove = function() {
+            FakeAPIS.deleteUserById(id, function(err, data) {
+                if (!err) {
+                    vm.closeModal();
+                    $state.reload();
+                }
+            });
+        }
+
     }
 })();

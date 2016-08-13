@@ -14,25 +14,9 @@
         var vm = this;
 
         FakeAPIS.getAllUsers(function(err, data) {
-            console.log(data);
             vm.users = data;
         });
-
-        /*vm.users = [
-            {
-                login: 'Andriy',
-                birthDate: '19.0282',
-                registrationDate: 'bfdb43g',
-                age: 22
-            },
-            {
-                login: 'Andriy',
-                birthDate: '19.0282',
-                registrationDate: 'bfdb43g',
-                age: 22
-            }
-        ];*/
-
+        
         vm.showDeleteModal = function(id) {
             return $uibModal.open({
                 keyboard: false,

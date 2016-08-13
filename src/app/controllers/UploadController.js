@@ -10,7 +10,7 @@
             .controller('UploadController', UploadController);
 
     /** @ngInject */
-    function UploadController(FakeAPIS) {
+    function UploadController(FakeAPIS, $state) {
         var vm = this;
         vm.today = new Date();
 
@@ -19,7 +19,9 @@
             user.age = calculateAge(user.birthDate);
 
             FakeAPIS.AddUser(user, function(err, data) {
-                console.log(data);
+                if(!err) {
+                    $state.go('main.home');
+                }
             });
         }
 

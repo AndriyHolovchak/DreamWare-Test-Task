@@ -9,6 +9,7 @@
             'ui.bootstrap',
             'toastr',
             'angularUUID2',
-            'ngStorage'
+            'ngStorage',
+            'ngLodash'
     ]);
 })();
