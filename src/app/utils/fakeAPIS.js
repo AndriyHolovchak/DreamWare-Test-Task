@@ -57,7 +57,12 @@
 
             $localStorage.Users.push(body);
 
-            return callback(null, body);
+            var successObj = {
+                status: 200,
+                data: body
+            }
+
+            return callback(null, successObj);
         }
 
         return {

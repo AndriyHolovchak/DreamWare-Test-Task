@@ -10,6 +10,7 @@
             'toastr',
             'angularUUID2',
             'ngStorage',
-            'ngLodash'
+            'ngLodash',
+            'ui-notification'
     ]);
 })();

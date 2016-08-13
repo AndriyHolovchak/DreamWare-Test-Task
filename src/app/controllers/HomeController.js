@@ -10,11 +10,15 @@
             .controller('HomeController', HomeController);
 
     /** @ngInject */
-    function HomeController($uibModal, FakeAPIS) {
+    function HomeController($uibModal, FakeAPIS, Logger) {
         var vm = this;
 
         FakeAPIS.getAllUsers(function(err, data) {
-            vm.users = data;
+            if (err) {
+                Logger.Error('Something went wrong :(');
+            } else {
+                vm.users = data;
+            }
         });
         
         vm.showDeleteModal = function(id) {

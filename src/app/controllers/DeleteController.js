@@ -10,7 +10,7 @@
             .controller('DeleteController', DeleteController);
 
     /** @ngInject */
-    function DeleteController($uibModalInstance, FakeAPIS, id, $state) {
+    function DeleteController($uibModalInstance, FakeAPIS, id, $state, Logger) {
         var vm = this;
 
         vm.closeModal = function() {
@@ -19,7 +19,10 @@
 
         vm.remove = function() {
             FakeAPIS.deleteUserById(id, function(err, data) {
-                if (!err) {
+                if (err) {
+                    Logger.Error('Something happened with your deleting :(');
+                } else {
+                    Logger.Success('User has been deleted!');
                     vm.closeModal();
                     $state.reload();
                 }
