@@ -7,7 +7,8 @@
     <div class="row">
         <div class="col-md-12">
             <button class="btn add-btn" ui-sref="main.upload()">Add new user</button>
-            <table class="table table-bordered table-hover">
+            <h4 ng-if="!home.users.length">No any user, to create the first user, click on the button above...</h4>
+            <table ng-if="home.users.length" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>Login</th>

@@ -9,13 +9,13 @@
             <form role="form" ng-submit="edit.editUser(edit.user)">
                 <div class="form-group">
                     <label for="email">Login</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email address"
+                    <input type="email" class="form-control" id="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                            ng-model="edit.user.login" required>
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
                     <input type="password" class="form-control" id="pwd" placeholder="Password"
-                           ng-model="edit.user.password" autocomplite="off" required>
+                           ng-model="edit.user.password" autocomplite="off" minlength="4" maxlength="20" required>
                 </div>
                 <div class="form-group">
                     <label>Date of Birth</label>
