@@ -11,6 +11,21 @@
 
     /** @ngInject */
     function HomeController() {
-        //var vm = this;
+        var vm = this;
+
+        vm.users = [
+            {
+                login: 'Andriy',
+                birthDate: '19.0282',
+                registrationDate: 'bfdb43g',
+                age: 22
+            },
+            {
+                login: 'Andriy',
+                birthDate: '19.0282',
+                registrationDate: 'bfdb43g',
+                age: 22
+            }
+        ];
     }
 })();

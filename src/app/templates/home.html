@@ -1,3 +1,40 @@
-<div class="container">
-    <h1>home</h1>
+<div id="home" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>All Users</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn add-btn">Add new user</button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Login</th>
+                    <th>Birth Date</th>
+                    <th>Registration Date</th>
+                    <th>Age</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in home.users | orderBy:'login'">
+                    <td>{{user.login}}</td>
+                    <td>{{user.birthDate}}</td>
+                    <td>{{user.registrationDate}}</td>
+                    <td>{{user.age}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-xs" data-title="Edit" ui-sref="main.edit({id: user.id})">
+                            <span class="fa fa-pencil"></span></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" data-title="Delete" ng-click="home.showDeleteModal(user.id)">
+                            <span class="fa fa-trash-o"></span></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
