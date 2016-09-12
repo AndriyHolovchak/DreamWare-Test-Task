@@ -5,7 +5,6 @@
 - Lodash: https://lodash.com/docs
 - angular-ui-notification: https://github.com/alexcrack/angular-ui-notification
 
-
 # How to run project
 1. Install node (v.5.10.1)
 2. Open console window and install gulp and bower with npm (Use command "npm istall -g bower", npm istall -g gulp")
